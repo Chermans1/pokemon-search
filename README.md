@@ -1,12 +1,14 @@
 # Pokémon Search
 
+**Live:** https://chermans1.github.io/pokemon-search/
+
 JavaScript Advanced, oppgave 3. Et søkefelt som henter data om en Pokémon fra PokéAPI og viser bilde, beskrivelse, type, svakheter, habitat, generasjon og stats.
 
 Bygget fordi sønnen min Benjamin er opptatt av Pokémon, så han har vært testeren.
 
 ## Slik kjører du den
 
-Åpne `index.html` i en nettleser. Ingen installasjon, ingen API-nøkkel.
+Åpne lenka over, eller klon repoet og åpne `index.html` i en nettleser. Ingen installasjon, ingen API-nøkkel.
 
 ## API
 
