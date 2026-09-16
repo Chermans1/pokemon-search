@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Farger samlet ett sted, så mørk modus bare bytter verdiene */
+:root {
+  --bg: #f4f4f4;
+  --flate: #ffffff;
+  --tekst: #1d2129;
+  --dempet: #5b6472;
+  --kant: #e2e5ea;
+  --aksent: #2d5bd7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12141a;
+    --flate: #1b1e26;
+    --tekst: #e9eef9;
+    --dempet: #9aa5b8;
+    --kant: #2a2f3b;
+    --aksent: #7aa2ff;
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--tekst);
+  line-height: 1.6;
+}
+
+main {
+  width: min(600px, 90%);
+  margin: 60px auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--kant);
+  border-radius: 6px;
+  background-color: var(--flate);
+  color: var(--tekst);
+}
+
+input:focus {
+  outline: 2px solid var(--aksent);
+  outline-offset: 1px;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--aksent);
+  color: #fff;
+  font-weight: bold;
+}
+
+#result {
+  padding: 28px;
+  background-color: var(--flate);
+  border: 1px solid var(--kant);
+  border-radius: 12px;
+  text-align: center;
+}
+
+#result:empty {
+  display: none;
+}
+
+/* Spriten er bare 96 piksler. Uten pixelated blir den uskarp når vi forstørrer */
+#result img {
+  width: 160px;
+  height: 160px;
+  image-rendering: pixelated;
+  margin-bottom: 4px;
+}
+
+/* API-et gir navnet i små bokstaver */
+#result h2 {
+  text-transform: capitalize;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+/* Første avsnitt etter navnet er beskrivelsen */
+#result h2 + p {
+  max-width: 44ch;
+  margin: 10px auto 22px;
+  color: var(--dempet);
+  font-style: italic;
+}
+
+/* Metalinjene: Type, Weakness, Habitat, Generation */
+#result p {
+  margin: 4px 0;
+}
+
+#result h3 {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--kant);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dempet);
+}
+
+/* Alt etter Stats-overskriften er tallene. Vises som brikker som brekker pent */
+#result h3 ~ p {
+  display: inline-block;
+  margin: 6px 4px 0;
+  padding: 6px 12px;
+  border: 1px solid var(--kant);
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+/* Feilmeldingen er det eneste avsnittet i boksen når søket bommer */
+#result > p:only-child {
+  margin: 0;
+  color: var(--dempet);
+}
+
+@media (max-width: 420px) {
+  main {
+    margin: 32px auto;
+  }
+  #result {
+    padding: 20px;
+  }
+  #result img {
+    width: 120px;
+    height: 120px;
+  }
+}
